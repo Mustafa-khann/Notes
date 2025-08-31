@@ -31,7 +31,7 @@ Notes is a lightweight, distraction-free note-taking application designed specif
 
 ```bash
 # Download the latest release
-wget https://github.com/mustafa-khann/notes/releases/download/v0.1.0/notes_0.1.0-1_amd64.deb
+wget https://github.com/Mustafa-khann/Notes/releases/download/v0.1.0/notes_0.1.0-1_amd64.deb
 
 # Install the package
 sudo dpkg -i notes_0.1.0-1_amd64.deb
