@@ -194,16 +194,28 @@ class NotesApp : public QApplication {
                     <h3>Performance Benefits</h3>
                     <div class="perf-metrics">
                         <div class="metric">
-                            <div class="metric-value">~5MB</div>
+                            <div class="metric-icon">
+                                <i class="fas fa-memory"></i>
+                            </div>
+                            <div class="metric-value">5MB</div>
                             <div class="metric-label">Memory Usage</div>
+                            <div class="metric-description">Lightweight footprint</div>
                         </div>
                         <div class="metric">
-                            <div class="metric-value">&lt;100ms</div>
+                            <div class="metric-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="metric-value">100ms</div>
                             <div class="metric-label">Startup Time</div>
+                            <div class="metric-description">Instant launch</div>
                         </div>
                         <div class="metric">
+                            <div class="metric-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
                             <div class="metric-value">Native</div>
                             <div class="metric-label">System Integration</div>
+                            <div class="metric-description">Seamless experience</div>
                         </div>
                     </div>
                 </div>
@@ -213,24 +225,39 @@ class NotesApp : public QApplication {
                 <h3>Architecture</h3>
                 <div class="arch-diagram">
                     <div class="arch-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
                         <div class="layer-name">UI Layer</div>
+                        <div class="layer-description">Modern Qt-based interface</div>
                         <div class="layer-components">
                             <span>Qt Widgets</span>
                             <span>Custom Components</span>
+                            <span>Responsive Design</span>
                         </div>
                     </div>
                     <div class="arch-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
                         <div class="layer-name">Business Logic</div>
+                        <div class="layer-description">Core application functionality</div>
                         <div class="layer-components">
                             <span>Note Management</span>
-                            <span>Auto-save</span>
+                            <span>Auto-save Engine</span>
+                            <span>Search & Filter</span>
                         </div>
                     </div>
                     <div class="arch-layer">
+                        <div class="layer-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
                         <div class="layer-name">Data Layer</div>
+                        <div class="layer-description">Reliable data persistence</div>
                         <div class="layer-components">
                             <span>SQLite Database</span>
-                            <span>File System</span>
+                            <span>File System I/O</span>
+                            <span>Data Migration</span>
                         </div>
                     </div>
                 </div>
