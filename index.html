@@ -26,7 +26,7 @@
             </div>
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#technical">Technical</a>
+                <a href="#architecture">Architecture</a>
                 <a href="#installation">Install</a>
                 <a href="https://github.com/mustafa-khann/notes" target="_blank" class="github-link">
                     <i class="fab fa-github"></i>
@@ -45,27 +45,44 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-text">🚀 Open Source</span>
+                </div>
                 <h1 class="hero-title">
                     Notes
                     <span class="hero-subtitle">Native Linux Note-Taking</span>
                 </h1>
                 <p class="hero-description">
-                    Fast, distraction-free notes built with Qt & C++17
+                    Fast, distraction-free notes built with Qt & C++17. Because sometimes the best code is the code you don't have to write twice.
                 </p>
                 <div class="hero-features">
-                    <span class="feature-tag">Auto-save</span>
-                    <span class="feature-tag">SQLite</span>
-                    <span class="feature-tag">Plain Text</span>
+                    <span class="feature-tag">⚡ Lightning Fast</span>
+                    <span class="feature-tag">💾 Auto-save</span>
+                    <span class="feature-tag">📁 SQLite</span>
                 </div>
                 <div class="hero-cta">
                     <a href="https://github.com/mustafa-khann/notes" target="_blank" class="btn btn-primary">
                         <i class="fab fa-github"></i>
-                        View on GitHub
+                        Star on GitHub
                     </a>
-                    <a href="#installation" class="btn btn-secondary">
+                    <a href="https://github.com/Mustafa-khann/Notes/releases/download/v0.1.0/notes_0.1.0-1_amd64.deb" class="btn btn-secondary">
                         <i class="fas fa-download"></i>
-                        Download .deb Package
+                        Download .deb
                     </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">5MB</span>
+                        <span class="stat-label">Memory</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">&lt;100ms</span>
+                        <span class="stat-label">Startup</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">0</span>
+                        <span class="stat-label">Electron Dependencies</span>
+                    </div>
                 </div>
             </div>
             <div class="hero-image">
@@ -110,8 +127,10 @@
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
-            <h2 class="section-title">Why Choose Notes?</h2>
-            <p class="section-subtitle">Built by developers, for developers</p>
+            <div class="section-header">
+                <h2 class="section-title">Why Choose Notes?</h2>
+                <p class="section-subtitle">Built by developers, for developers (and maybe some sysadmins too)</p>
+            </div>
             
             <div class="features-grid">
                 <div class="feature-card">
@@ -119,7 +138,7 @@
                         <i class="fas fa-bolt"></i>
                     </div>
                     <h3>Lightning Fast</h3>
-                    <p>Native C++ performance with zero Electron bloat. Start instantly and edit without lag.</p>
+                    <p>Native C++ performance with zero Electron bloat. Start instantly and edit without lag. Your CPU will thank you.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -127,7 +146,7 @@
                         <i class="fas fa-save"></i>
                     </div>
                     <h3>Auto-Save</h3>
-                    <p>Never lose your work. Every keystroke is automatically saved to SQLite database.</p>
+                    <p>Never lose your work. Every keystroke is automatically saved to SQLite database. Because we've all been there.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -135,7 +154,7 @@
                         <i class="fas fa-columns"></i>
                     </div>
                     <h3>3-Pane Layout</h3>
-                    <p>Organized workflow with folders, notes list, and editor all visible at once.</p>
+                    <p>Organized workflow with folders, notes list, and editor all visible at once. No more tab switching madness.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -143,7 +162,7 @@
                         <i class="fas fa-mouse-pointer"></i>
                     </div>
                     <h3>Drag & Drop</h3>
-                    <p>Intuitive organization with drag and drop support for folders and notes.</p>
+                    <p>Intuitive organization with drag and drop support. Move notes between folders like a digital Marie Kondo.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -151,7 +170,7 @@
                         <i class="fas fa-file-alt"></i>
                     </div>
                     <h3>Plain Text</h3>
-                    <p>Distraction-free editing with plain text format. Focus on content, not formatting.</p>
+                    <p>Distraction-free editing with plain text format. Focus on content, not formatting. Markdown is overrated anyway.</p>
                 </div>
                 
                 <div class="feature-card">
@@ -159,161 +178,170 @@
                         <i class="fas fa-moon"></i>
                     </div>
                     <h3>Dark Theme</h3>
-                    <p>Easy on the eyes with a beautiful dark theme that matches your system.</p>
+                    <p>Easy on the eyes with a beautiful dark theme. Because staring at bright screens all day is so 2010.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Section -->
-    <section id="technical" class="technical">
+    <!-- Architecture Section -->
+    <section id="architecture" class="architecture-section">
         <div class="container">
-            <h2 class="section-title">Technical Excellence</h2>
-            <p class="section-subtitle">Modern C++ meets native Linux development</p>
-            
-            <div class="technical-grid">
-                <div class="tech-stack">
-                    <h3>Tech Stack</h3>
-                    <div class="code-block">
-                        <div class="code-header">
-                            <span>Technologies</span>
-                        </div>
-                        <pre><code class="language-cpp">// Built with modern C++ and Qt
-#include &lt;QtWidgets&gt;
-#include &lt;QtCore&gt;
-
-class NotesApp : public QApplication {
-    // Native performance
-    // Zero bloat
-    // System integration
-};</code></pre>
-                    </div>
-                </div>
-                
-                <div class="performance">
-                    <h3>Performance Benefits</h3>
-                    <div class="perf-metrics">
-                        <div class="metric">
-                            <div class="metric-icon">
-                                <i class="fas fa-memory"></i>
-                            </div>
-                            <div class="metric-value">5MB</div>
-                            <div class="metric-label">Memory Usage</div>
-                            <div class="metric-description">Lightweight footprint</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div class="metric-value">100ms</div>
-                            <div class="metric-label">Startup Time</div>
-                            <div class="metric-description">Instant launch</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-icon">
-                                <i class="fas fa-desktop"></i>
-                            </div>
-                            <div class="metric-value">Native</div>
-                            <div class="metric-label">System Integration</div>
-                            <div class="metric-description">Seamless experience</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2 class="section-title">Architecture</h2>
+                <p class="section-subtitle">Clean, modular design that even your junior dev can understand</p>
             </div>
             
-            <div class="architecture">
-                <h3>Architecture</h3>
-                <p class="architecture-subtitle">Clean, modular design for optimal performance and maintainability</p>
-                <div class="arch-diagram">
+            <div class="architecture-overview">
+                <div class="arch-intro">
+                    <h3>🏗️ How It's Built</h3>
+                    <p>Notes follows a clean, layered architecture that separates concerns and makes the codebase maintainable. Each layer has a specific responsibility, making it easy to understand and contribute to.</p>
+                </div>
+                
+                <div class="arch-layers">
+                    <!-- UI Layer -->
                     <div class="arch-layer">
                         <div class="layer-header">
-                            <div class="layer-icon">
-                                <i class="fas fa-desktop"></i>
-                            </div>
+                            <div class="layer-number">1</div>
                             <div class="layer-info">
-                                <div class="layer-name">UI Layer</div>
-                                <div class="layer-description">Modern Qt-based interface</div>
+                                <h4>🎨 UI Layer</h4>
+                                <p>What users see and interact with</p>
                             </div>
                         </div>
                         <div class="layer-content">
                             <div class="layer-components">
-                                <span class="component">
+                                <div class="component">
                                     <i class="fas fa-window-maximize"></i>
-                                    Qt Widgets
-                                </span>
-                                <span class="component">
+                                    <div class="component-info">
+                                        <strong>Qt Widgets</strong>
+                                        <span>Native UI components</span>
+                                    </div>
+                                </div>
+                                <div class="component">
                                     <i class="fas fa-puzzle-piece"></i>
-                                    Custom Components
-                                </span>
-                                <span class="component">
-                                    <i class="fas fa-mobile-alt"></i>
-                                    Responsive Design
-                                </span>
+                                    <div class="component-info">
+                                        <strong>Custom Components</strong>
+                                        <span>Notes-specific UI elements</span>
+                                    </div>
+                                </div>
+                                <div class="component">
+                                    <i class="fas fa-palette"></i>
+                                    <div class="component-info">
+                                        <strong>Dark Theme</strong>
+                                        <span>Consistent visual design</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layer-description">
+                                <p><strong>Responsibility:</strong> Handles user interactions, displays data, and manages the visual presentation of the application.</p>
+                                <p><strong>Key Files:</strong> <code>MainWindow.cpp</code>, <code>TextEditor.cpp</code>, <code>NoteListDelegate.cpp</code></p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="arch-connector">
-                        <i class="fas fa-arrow-down"></i>
-                    </div>
-                    
+
+                    <!-- Business Logic Layer -->
                     <div class="arch-layer">
                         <div class="layer-header">
-                            <div class="layer-icon">
-                                <i class="fas fa-cogs"></i>
-                            </div>
+                            <div class="layer-number">2</div>
                             <div class="layer-info">
-                                <div class="layer-name">Business Logic</div>
-                                <div class="layer-description">Core application functionality</div>
+                                <h4>🧠 Business Logic</h4>
+                                <p>Core application functionality</p>
                             </div>
                         </div>
                         <div class="layer-content">
                             <div class="layer-components">
-                                <span class="component">
+                                <div class="component">
                                     <i class="fas fa-sticky-note"></i>
-                                    Note Management
-                                </span>
-                                <span class="component">
+                                    <div class="component-info">
+                                        <strong>Note Management</strong>
+                                        <span>CRUD operations for notes</span>
+                                    </div>
+                                </div>
+                                <div class="component">
                                     <i class="fas fa-save"></i>
-                                    Auto-save Engine
-                                </span>
-                                <span class="component">
-                                    <i class="fas fa-search"></i>
-                                    Search & Filter
-                                </span>
+                                    <div class="component-info">
+                                        <strong>Auto-save Engine</strong>
+                                        <span>Automatic data persistence</span>
+                                    </div>
+                                </div>
+                                <div class="component">
+                                    <i class="fas fa-folder-tree"></i>
+                                    <div class="component-info">
+                                        <strong>Folder Organization</strong>
+                                        <span>Hierarchical note structure</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="layer-description">
+                                <p><strong>Responsibility:</strong> Contains the core business rules, orchestrates data flow, and manages application state.</p>
+                                <p><strong>Key Files:</strong> <code>MainWindow.cpp</code> (business logic), <code>NotesModel.cpp</code></p>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="arch-connector">
-                        <i class="fas fa-arrow-down"></i>
-                    </div>
-                    
+
+                    <!-- Data Layer -->
                     <div class="arch-layer">
                         <div class="layer-header">
-                            <div class="layer-icon">
-                                <i class="fas fa-database"></i>
-                            </div>
+                            <div class="layer-number">3</div>
                             <div class="layer-info">
-                                <div class="layer-name">Data Layer</div>
-                                <div class="layer-description">Reliable data persistence</div>
+                                <h4>💾 Data Layer</h4>
+                                <p>Reliable data persistence</p>
                             </div>
                         </div>
                         <div class="layer-content">
                             <div class="layer-components">
-                                <span class="component">
+                                <div class="component">
                                     <i class="fas fa-database"></i>
-                                    SQLite Database
-                                </span>
-                                <span class="component">
+                                    <div class="component-info">
+                                        <strong>SQLite Database</strong>
+                                        <span>Local data storage</span>
+                                    </div>
+                                </div>
+                                <div class="component">
                                     <i class="fas fa-folder-open"></i>
-                                    File System I/O
-                                </span>
-                                <span class="component">
+                                    <div class="component-info">
+                                        <strong>File System I/O</strong>
+                                        <span>Import/export functionality</span>
+                                    </div>
+                                </div>
+                                <div class="component">
                                     <i class="fas fa-exchange-alt"></i>
-                                    Data Migration
-                                </span>
+                                    <div class="component-info">
+                                        <strong>Data Migration</strong>
+                                        <span>Schema version management</span>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="layer-description">
+                                <p><strong>Responsibility:</strong> Handles all data persistence, database operations, and file system interactions.</p>
+                                <p><strong>Key Files:</strong> <code>DatabaseManager.cpp</code>, <code>DatabaseManager.h</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="arch-benefits">
+                    <h3>🎯 Why This Architecture?</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <i class="fas fa-code"></i>
+                            <h4>Easy to Understand</h4>
+                            <p>Clear separation of concerns makes the codebase approachable for new contributors</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-bug"></i>
+                            <h4>Easy to Debug</h4>
+                            <p>Issues can be isolated to specific layers, making debugging much simpler</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-plus"></i>
+                            <h4>Easy to Extend</h4>
+                            <p>New features can be added without affecting existing functionality</p>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-test-tube"></i>
+                            <h4>Easy to Test</h4>
+                            <p>Each layer can be tested independently</p>
                         </div>
                     </div>
                 </div>
@@ -324,18 +352,27 @@ class NotesApp : public QApplication {
     <!-- Installation Section -->
     <section id="installation" class="installation">
         <div class="container">
-            <h2 class="section-title">Get Started in Seconds</h2>
-            <p class="section-subtitle">Simple installation for Ubuntu/Debian systems</p>
+            <div class="section-header">
+                <h2 class="section-title">Get Started in Seconds</h2>
+                <p class="section-subtitle">Simple installation for Ubuntu/Debian systems (because we're not animals)</p>
+            </div>
             
             <div class="install-grid">
                 <div class="install-methods">
                     <div class="install-method">
-                        <h3>Download .deb Package</h3>
+                        <div class="method-header">
+                            <i class="fas fa-download"></i>
+                            <h3>Download .deb Package</h3>
+                            <span class="method-badge">Recommended</span>
+                        </div>
                         <div class="code-block">
                             <div class="code-header">
                                 <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode('install-deb')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
                             </div>
-                            <pre><code class="language-bash"># Download the latest release
+                            <pre id="install-deb"><code class="language-bash"># Download the latest release
 wget https://github.com/mustafa-khann/notes/releases/download/v0.1.0/notes_0.1.0-1_amd64.deb
 
 # Install the package
@@ -347,12 +384,19 @@ sudo apt-get install -f</code></pre>
                     </div>
                     
                     <div class="install-method">
-                        <h3>Build from Source</h3>
+                        <div class="method-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Build from Source</h3>
+                            <span class="method-badge">For Developers</span>
+                        </div>
                         <div class="code-block">
                             <div class="code-header">
                                 <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode('install-source')">
+                                    <i class="fas fa-copy"></i>
+                                </button>
                             </div>
-                            <pre><code class="language-bash"># Clone the repository
+                            <pre id="install-source"><code class="language-bash"># Clone the repository
 git clone https://github.com/mustafa-khann/notes.git
 cd notes
 
@@ -369,7 +413,7 @@ sudo make install</code></pre>
                 </div>
                 
                 <div class="install-benefits">
-                    <h3>System Integration</h3>
+                    <h3>🎁 What You Get</h3>
                     <ul class="benefits-list">
                         <li><i class="fas fa-check"></i> Desktop shortcut automatically created</li>
                         <li><i class="fas fa-check"></i> Application menu integration</li>
@@ -378,6 +422,15 @@ sudo make install</code></pre>
                         <li><i class="fas fa-check"></i> System theme integration</li>
                         <li><i class="fas fa-check"></i> Proper uninstall support</li>
                     </ul>
+                    
+                    <div class="contribution-cta">
+                        <h4>🤝 Want to Contribute?</h4>
+                        <p>Found a bug? Have an idea? We'd love your help! Check out our <a href="https://github.com/mustafa-khann/notes" target="_blank">GitHub repository</a> and join the community.</p>
+                        <a href="https://github.com/mustafa-khann/notes" target="_blank" class="btn btn-outline">
+                            <i class="fab fa-github"></i>
+                            Contribute on GitHub
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -386,24 +439,30 @@ sudo make install</code></pre>
     <!-- Gallery Section -->
     <section class="gallery">
         <div class="container">
-            <h2 class="section-title">See Notes in Action</h2>
+            <div class="section-header">
+                <h2 class="section-title">See Notes in Action</h2>
+                <p class="section-subtitle">Screenshots that don't lie (unlike some other apps)</p>
+            </div>
             <div class="gallery-grid">
                 <div class="gallery-item">
                     <div class="gallery-placeholder">
                         <i class="fas fa-desktop"></i>
                         <span>Main Interface</span>
+                        <p>Clean, distraction-free writing</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-placeholder">
                         <i class="fas fa-cog"></i>
                         <span>Settings Dialog</span>
+                        <p>Simple configuration</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="gallery-placeholder">
                         <i class="fas fa-folder"></i>
                         <span>Folder Organization</span>
+                        <p>Intuitive file management</p>
                     </div>
                 </div>
             </div>
@@ -414,7 +473,7 @@ sudo make install</code></pre>
     <section class="cta">
         <div class="container">
             <h2>Ready to try Notes?</h2>
-            <p>Join the community of developers who prefer native performance</p>
+            <p>Join the community of developers who prefer native performance over bloat</p>
             
             <div class="cta-buttons">
                 <a href="https://github.com/mustafa-khann/notes" target="_blank" class="btn btn-primary btn-large">
@@ -428,7 +487,8 @@ sudo make install</code></pre>
             </div>
             
             <div class="cta-footer">
-                <p>Built with ❤️ for the Linux community</p>
+                <p>Built with ❤️ and ☕ for the Linux community</p>
+                <p class="cta-humor">P.S. No Electron was harmed in the making of this application</p>
             </div>
         </div>
     </section>
@@ -439,7 +499,7 @@ sudo make install</code></pre>
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Notes</h4>
-                    <p>Fast, native Linux note-taking with zero distractions.</p>
+                    <p>Fast, native Linux note-taking with zero distractions and maximum productivity.</p>
                     <div class="social-links">
                         <a href="https://github.com/mustafa-khann/notes" target="_blank">
                             <i class="fab fa-github"></i>
@@ -466,16 +526,32 @@ sudo make install</code></pre>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Notes. Made for Linux, by Linux users.</p>
+                <p>&copy; <span id="current-year"></span> Notes. Made for Linux, by Linux users, with love and a bit of humor.</p>
             </div>
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                    document.getElementById('current-year').textContent = new Date().getFullYear();
-                });
-            </script>
         </div>
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Copy code functionality
+        function copyCode(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const button = element.parentElement.querySelector('.copy-btn');
+                const icon = button.querySelector('i');
+                icon.className = 'fas fa-check';
+                setTimeout(() => {
+                    icon.className = 'fas fa-copy';
+                }, 2000);
+            });
+        }
+
+        // Current year
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+    </script>
 </body>
 </html>
