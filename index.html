@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes - Fast, Native Linux Note-Taking</title>
+    <meta name="description" content="Fast, distraction-free notes built with Qt & C++17. Native Linux note-taking with zero distractions.">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-sticky-note"></i>
+                <span>Notes</span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#technical">Technical</a>
+                <a href="#installation">Install</a>
+                <a href="https://github.com/mustafa-khann/notes" target="_blank" class="github-link">
+                    <i class="fab fa-github"></i>
+                    GitHub
+                </a>
+            </div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Notes
+                    <span class="hero-subtitle">Native Linux Note-Taking</span>
+                </h1>
+                <p class="hero-description">
+                    Fast, distraction-free notes built with Qt & C++17
+                </p>
+                <div class="hero-features">
+                    <span class="feature-tag">Auto-save</span>
+                    <span class="feature-tag">SQLite</span>
+                    <span class="feature-tag">Plain Text</span>
+                </div>
+                <div class="hero-cta">
+                    <a href="https://github.com/mustafa-khann/notes" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-github"></i>
+                        View on GitHub
+                    </a>
+                    <a href="#installation" class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Download .deb Package
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="app-screenshot">
+                    <div class="screenshot-header">
+                        <div class="window-controls">
+                            <span class="control close"></span>
+                            <span class="control minimize"></span>
+                            <span class="control maximize"></span>
+                        </div>
+                        <span class="window-title">Notes</span>
+                    </div>
+                    <div class="screenshot-content">
+                        <div class="pane folders-pane">
+                            <div class="folder active">📁 Personal</div>
+                            <div class="folder">📁 Work</div>
+                            <div class="folder">📁 Ideas</div>
+                        </div>
+                        <div class="pane notes-pane">
+                            <div class="note active">Getting Started</div>
+                            <div class="note">Project Ideas</div>
+                            <div class="note">Meeting Notes</div>
+                        </div>
+                        <div class="pane editor-pane">
+                            <div class="editor-content">
+                                <h3>Getting Started</h3>
+                                <p>Welcome to Notes! This is a fast, native Linux note-taking application built with Qt and C++17.</p>
+                                <p>Features:</p>
+                                <ul>
+                                    <li>Lightning fast performance</li>
+                                    <li>Auto-save functionality</li>
+                                    <li>3-pane layout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose Notes?</h2>
+            <p class="section-subtitle">Built by developers, for developers</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Lightning Fast</h3>
+                    <p>Native C++ performance with zero Electron bloat. Start instantly and edit without lag.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-save"></i>
+                    </div>
+                    <h3>Auto-Save</h3>
+                    <p>Never lose your work. Every keystroke is automatically saved to SQLite database.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-columns"></i>
+                    </div>
+                    <h3>3-Pane Layout</h3>
+                    <p>Organized workflow with folders, notes list, and editor all visible at once.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                    <h3>Drag & Drop</h3>
+                    <p>Intuitive organization with drag and drop support for folders and notes.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Plain Text</h3>
+                    <p>Distraction-free editing with plain text format. Focus on content, not formatting.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3>Dark Theme</h3>
+                    <p>Easy on the eyes with a beautiful dark theme that matches your system.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Section -->
+    <section id="technical" class="technical">
+        <div class="container">
+            <h2 class="section-title">Technical Excellence</h2>
+            <p class="section-subtitle">Modern C++ meets native Linux development</p>
+            
+            <div class="technical-grid">
+                <div class="tech-stack">
+                    <h3>Tech Stack</h3>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>Technologies</span>
+                        </div>
+                        <pre><code class="language-cpp">// Built with modern C++ and Qt
+#include &lt;QtWidgets&gt;
+#include &lt;QtCore&gt;
+
+class NotesApp : public QApplication {
+    // Native performance
+    // Zero bloat
+    // System integration
+};</code></pre>
+                    </div>
+                </div>
+                
+                <div class="performance">
+                    <h3>Performance Benefits</h3>
+                    <div class="perf-metrics">
+                        <div class="metric">
+                            <div class="metric-value">~5MB</div>
+                            <div class="metric-label">Memory Usage</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">&lt;100ms</div>
+                            <div class="metric-label">Startup Time</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value">Native</div>
+                            <div class="metric-label">System Integration</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="architecture">
+                <h3>Architecture</h3>
+                <div class="arch-diagram">
+                    <div class="arch-layer">
+                        <div class="layer-name">UI Layer</div>
+                        <div class="layer-components">
+                            <span>Qt Widgets</span>
+                            <span>Custom Components</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="layer-name">Business Logic</div>
+                        <div class="layer-components">
+                            <span>Note Management</span>
+                            <span>Auto-save</span>
+                        </div>
+                    </div>
+                    <div class="arch-layer">
+                        <div class="layer-name">Data Layer</div>
+                        <div class="layer-components">
+                            <span>SQLite Database</span>
+                            <span>File System</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
+            <h2 class="section-title">Get Started in Seconds</h2>
+            <p class="section-subtitle">Simple installation for Ubuntu/Debian systems</p>
+            
+            <div class="install-grid">
+                <div class="install-methods">
+                    <div class="install-method">
+                        <h3>Download .deb Package</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                            </div>
+                            <pre><code class="language-bash"># Download the latest release
+wget https://github.com/mustafa-khann/notes/releases/latest/download/notes_0.1.0-1_amd64.deb
+
+# Install the package
+sudo dpkg -i notes_0.1.0-1_amd64.deb
+
+# Fix any dependencies
+sudo apt-get install -f</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div class="install-method">
+                        <h3>Build from Source</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                            </div>
+                            <pre><code class="language-bash"># Clone the repository
+git clone https://github.com/mustafa-khann/notes.git
+cd notes
+
+# Install dependencies
+sudo apt-get install qt6-base-dev cmake build-essential
+
+# Build and install
+mkdir build && cd build
+cmake ..
+make
+sudo make install</code></pre>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="install-benefits">
+                    <h3>System Integration</h3>
+                    <ul class="benefits-list">
+                        <li><i class="fas fa-check"></i> Desktop shortcut automatically created</li>
+                        <li><i class="fas fa-check"></i> Application menu integration</li>
+                        <li><i class="fas fa-check"></i> File type associations</li>
+                        <li><i class="fas fa-check"></i> Native window management</li>
+                        <li><i class="fas fa-check"></i> System theme integration</li>
+                        <li><i class="fas fa-check"></i> Proper uninstall support</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">See Notes in Action</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-desktop"></i>
+                        <span>Main Interface</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings Dialog</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-placeholder">
+                        <i class="fas fa-folder"></i>
+                        <span>Folder Organization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to try Notes?</h2>
+            <p>Join the community of developers who prefer native performance</p>
+            
+            <div class="cta-buttons">
+                <a href="https://github.com/mustafa-khann/notes" target="_blank" class="btn btn-primary btn-large">
+                    <i class="fab fa-github"></i>
+                    Star on GitHub
+                </a>
+                <a href="#installation" class="btn btn-secondary btn-large">
+                    <i class="fas fa-download"></i>
+                    Download Now
+                </a>
+            </div>
+            
+            <div class="cta-footer">
+                <p>Built with ❤️ for the Linux community</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Notes</h4>
+                    <p>Fast, native Linux note-taking with zero distractions.</p>
+                    <div class="social-links">
+                        <a href="https://github.com/mustafa-khann/notes" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/mustafa-khann/notes" target="_blank">GitHub Repository</a></li>
+                        <li><a href="https://github.com/mustafa-khann/notes/issues" target="_blank">Report Issues</a></li>
+                        <li><a href="https://github.com/mustafa-khann/notes/blob/main/README.md" target="_blank">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="https://github.com/mustafa-khann/notes/blob/main/LICENSE" target="_blank">MIT License</a></li>
+                        <li><a href="https://github.com/mustafa-khann/notes/blob/main/README.md" target="_blank">README</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Notes. Made for Linux, by Linux users.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
