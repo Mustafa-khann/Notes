@@ -223,41 +223,97 @@ class NotesApp : public QApplication {
             
             <div class="architecture">
                 <h3>Architecture</h3>
+                <p class="architecture-subtitle">Clean, modular design for optimal performance and maintainability</p>
                 <div class="arch-diagram">
                     <div class="arch-layer">
-                        <div class="layer-icon">
-                            <i class="fas fa-desktop"></i>
+                        <div class="layer-header">
+                            <div class="layer-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <div class="layer-info">
+                                <div class="layer-name">UI Layer</div>
+                                <div class="layer-description">Modern Qt-based interface</div>
+                            </div>
                         </div>
-                        <div class="layer-name">UI Layer</div>
-                        <div class="layer-description">Modern Qt-based interface</div>
-                        <div class="layer-components">
-                            <span>Qt Widgets</span>
-                            <span>Custom Components</span>
-                            <span>Responsive Design</span>
+                        <div class="layer-content">
+                            <div class="layer-components">
+                                <span class="component">
+                                    <i class="fas fa-window-maximize"></i>
+                                    Qt Widgets
+                                </span>
+                                <span class="component">
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    Custom Components
+                                </span>
+                                <span class="component">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    Responsive Design
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="arch-connector">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    
                     <div class="arch-layer">
-                        <div class="layer-icon">
-                            <i class="fas fa-cogs"></i>
+                        <div class="layer-header">
+                            <div class="layer-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="layer-info">
+                                <div class="layer-name">Business Logic</div>
+                                <div class="layer-description">Core application functionality</div>
+                            </div>
                         </div>
-                        <div class="layer-name">Business Logic</div>
-                        <div class="layer-description">Core application functionality</div>
-                        <div class="layer-components">
-                            <span>Note Management</span>
-                            <span>Auto-save Engine</span>
-                            <span>Search & Filter</span>
+                        <div class="layer-content">
+                            <div class="layer-components">
+                                <span class="component">
+                                    <i class="fas fa-sticky-note"></i>
+                                    Note Management
+                                </span>
+                                <span class="component">
+                                    <i class="fas fa-save"></i>
+                                    Auto-save Engine
+                                </span>
+                                <span class="component">
+                                    <i class="fas fa-search"></i>
+                                    Search & Filter
+                                </span>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div class="arch-connector">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    
                     <div class="arch-layer">
-                        <div class="layer-icon">
-                            <i class="fas fa-database"></i>
+                        <div class="layer-header">
+                            <div class="layer-icon">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="layer-info">
+                                <div class="layer-name">Data Layer</div>
+                                <div class="layer-description">Reliable data persistence</div>
+                            </div>
                         </div>
-                        <div class="layer-name">Data Layer</div>
-                        <div class="layer-description">Reliable data persistence</div>
-                        <div class="layer-components">
-                            <span>SQLite Database</span>
-                            <span>File System I/O</span>
-                            <span>Data Migration</span>
+                        <div class="layer-content">
+                            <div class="layer-components">
+                                <span class="component">
+                                    <i class="fas fa-database"></i>
+                                    SQLite Database
+                                </span>
+                                <span class="component">
+                                    <i class="fas fa-folder-open"></i>
+                                    File System I/O
+                                </span>
+                                <span class="component">
+                                    <i class="fas fa-exchange-alt"></i>
+                                    Data Migration
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>
