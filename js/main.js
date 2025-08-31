@@ -1,188 +1,307 @@
-// Main JavaScript for Notes Landing Page
+// Modern JavaScript for Notes Landing Page
+// Enhanced with professional animations and interactions
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            navToggle.classList.toggle('active');
+class NotesLandingPage {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.initializeAnimations();
+        this.setupScrollEffects();
+        this.setupCopyFunctionality();
+        this.setupPerformanceOptimizations();
+        this.initializeGitHubStats();
+        this.addConsoleWelcome();
+    }
+
+    setupEventListeners() {
+        // Mobile Navigation Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (navToggle && navLinks) {
+            navToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+                navToggle.classList.toggle('active');
+                document.body.classList.toggle('nav-open');
+            });
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navLinks?.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        navToggle?.classList.remove('active');
+                        document.body.classList.remove('nav-open');
+                    }
+                }
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.navbar') && navLinks?.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navToggle?.classList.remove('active');
+                document.body.classList.remove('nav-open');
+            }
         });
     }
 
-    // Smooth Scrolling for Navigation Links
-    const navLinksList = document.querySelectorAll('a[href^="#"]');
-    navLinksList.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 70; // Account for fixed navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                    navToggle.classList.remove('active');
-                }
-            }
-        });
-    });
-
-    // Navbar Background on Scroll
-    const navbar = document.querySelector('.navbar');
-    let lastScrollTop = 0;
-    
-    window.addEventListener('scroll', function() {
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    initializeAnimations() {
+        // Typing Animation for Hero Title
+        this.setupTypingAnimation();
         
-        // Add background when scrolled
-        if (scrollTop > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+        // Scroll-triggered animations
+        this.setupScrollAnimations();
         
-        // Hide/show navbar on scroll (optional)
-        if (scrollTop > lastScrollTop && scrollTop > 100) {
-            navbar.style.transform = 'translateY(-100%)';
-        } else {
-            navbar.style.transform = 'translateY(0)';
-        }
+        // Parallax effects
+        this.setupParallaxEffects();
         
-        lastScrollTop = scrollTop;
-    });
+        // Hover animations
+        this.setupHoverAnimations();
+    }
 
-    // Scroll Animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
+    setupTypingAnimation() {
+        const heroTitle = document.querySelector('.hero-title');
+        if (!heroTitle) return;
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for scroll animations
-    const animateElements = document.querySelectorAll('.feature-card, .code-block, .metric, .gallery-item, .arch-layer');
-    animateElements.forEach(el => {
-        el.classList.add('scroll-animate');
-        observer.observe(el);
-    });
-
-    // Typing Animation for Hero Title
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const text = heroTitle.textContent;
+        const originalText = heroTitle.textContent;
         heroTitle.textContent = '';
-        
+        heroTitle.style.opacity = '1';
+
         let i = 0;
         const typeWriter = () => {
-            if (i < text.length) {
-                heroTitle.textContent += text.charAt(i);
+            if (i < originalText.length) {
+                heroTitle.textContent += originalText.charAt(i);
                 i++;
-                setTimeout(typeWriter, 100);
+                setTimeout(typeWriter, 80);
+            } else {
+                // Add cursor blink effect
+                this.addCursorBlink(heroTitle);
             }
         };
-        
+
         // Start typing animation after a delay
         setTimeout(typeWriter, 500);
     }
 
-    // Parallax Effect for Hero Section
-    const hero = document.querySelector('.hero');
-    window.addEventListener('scroll', function() {
-        if (hero) {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
-        }
-    });
+    addCursorBlink(element) {
+        const cursor = document.createElement('span');
+        cursor.textContent = '|';
+        cursor.style.color = 'var(--primary-color)';
+        cursor.style.animation = 'blink 1s infinite';
+        element.appendChild(cursor);
 
-    // Code Block Copy Functionality
-    const codeBlocks = document.querySelectorAll('.code-block');
-    codeBlocks.forEach(block => {
-        const code = block.querySelector('code');
-        if (code) {
-            // Add copy button
-            const copyButton = document.createElement('button');
-            copyButton.className = 'copy-btn';
-            copyButton.innerHTML = '<i class="fas fa-copy"></i>';
-            copyButton.title = 'Copy code';
-            
-            const header = block.querySelector('.code-header');
-            if (header) {
-                header.appendChild(copyButton);
-            }
-            
-            copyButton.addEventListener('click', function() {
-                const textToCopy = code.textContent;
-                navigator.clipboard.writeText(textToCopy).then(function() {
-                    // Show success feedback
-                    copyButton.innerHTML = '<i class="fas fa-check"></i>';
-                    copyButton.style.color = '#10b981';
-                    
-                    setTimeout(() => {
-                        copyButton.innerHTML = '<i class="fas fa-copy"></i>';
-                        copyButton.style.color = '';
-                    }, 2000);
-                }).catch(function(err) {
-                    console.error('Could not copy text: ', err);
-                });
-            });
-        }
-    });
-
-    // Performance Metrics Animation
-    const metrics = document.querySelectorAll('.metric-value');
-    const animateMetric = (element, target) => {
-        let current = 0;
-        const increment = target / 50;
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            element.textContent = current.toFixed(0);
-        }, 30);
-    };
-
-    // Animate metrics when they come into view
-    const metricsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const metricValue = entry.target;
-                const text = metricValue.textContent;
-                
-                if (text.includes('MB')) {
-                    animateMetric(metricValue, 5);
-                } else if (text.includes('ms')) {
-                    animateMetric(metricValue, 100);
+        // Add CSS for cursor blink
+        if (!document.querySelector('#cursor-blink-style')) {
+            const style = document.createElement('style');
+            style.id = 'cursor-blink-style';
+            style.textContent = `
+                @keyframes blink {
+                    0%, 50% { opacity: 1; }
+                    51%, 100% { opacity: 0; }
                 }
-                
-                metricsObserver.unobserve(metricValue);
-            }
+            `;
+            document.head.appendChild(style);
+        }
+    }
+
+    setupScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        const animateElements = document.querySelectorAll(
+            '.feature-card, .arch-layer, .install-method, .gallery-item, .benefit'
+        );
+        
+        animateElements.forEach(el => {
+            el.classList.add('scroll-animate');
+            observer.observe(el);
         });
-    }, { threshold: 0.5 });
+    }
 
-    metrics.forEach(metric => {
-        metricsObserver.observe(metric);
-    });
+    setupParallaxEffects() {
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
 
-    // GitHub Star Count (if available)
-    async function fetchGitHubStats() {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.3;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+    }
+
+    setupHoverAnimations() {
+        // Feature cards hover effects
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-8px) scale(1.02)';
+                card.style.boxShadow = 'var(--shadow-xl)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+                card.style.boxShadow = 'var(--shadow-md)';
+            });
+        });
+
+        // Architecture layers hover effects
+        document.querySelectorAll('.arch-layer').forEach(layer => {
+            layer.addEventListener('mouseenter', () => {
+                layer.style.transform = 'translateY(-4px)';
+                layer.style.boxShadow = 'var(--shadow-xl)';
+            });
+            
+            layer.addEventListener('mouseleave', () => {
+                layer.style.transform = 'translateY(0)';
+                layer.style.boxShadow = 'var(--shadow-md)';
+            });
+        });
+    }
+
+    setupScrollEffects() {
+        const navbar = document.querySelector('.navbar');
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add background when scrolled
+            if (scrollTop > 50) {
+                navbar?.classList.add('scrolled');
+            } else {
+                navbar?.classList.remove('scrolled');
+            }
+            
+            // Hide/show navbar on scroll (optional)
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                navbar.style.transform = 'translateY(-100%)';
+            } else {
+                navbar.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    }
+
+    setupCopyFunctionality() {
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const codeBlock = btn.closest('.code-block');
+                const code = codeBlock?.querySelector('code');
+                
+                if (code) {
+                    this.copyToClipboard(code.textContent, btn);
+                }
+            });
+        });
+    }
+
+    async copyToClipboard(text, button) {
+        try {
+            await navigator.clipboard.writeText(text);
+            this.showCopySuccess(button);
+        } catch (err) {
+            // Fallback for older browsers
+            this.fallbackCopyToClipboard(text, button);
+        }
+    }
+
+    fallbackCopyToClipboard(text, button) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            document.execCommand('copy');
+            this.showCopySuccess(button);
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    showCopySuccess(button) {
+        const icon = button.querySelector('i');
+        const originalIcon = icon.className;
+        
+        icon.className = 'fas fa-check';
+        button.style.color = 'var(--success-color)';
+        
+        setTimeout(() => {
+            icon.className = originalIcon;
+            button.style.color = '';
+        }, 2000);
+    }
+
+    setupPerformanceOptimizations() {
+        // Debounced scroll handler
+        let scrollTimeout;
+        window.addEventListener('scroll', () => {
+            if (scrollTimeout) {
+                clearTimeout(scrollTimeout);
+            }
+            scrollTimeout = setTimeout(() => {
+                // Performance-intensive operations here
+            }, 16); // ~60fps
+        });
+
+        // Lazy loading for images
+        this.setupLazyLoading();
+    }
+
+    setupLazyLoading() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+    }
+
+    async initializeGitHubStats() {
         try {
             const response = await fetch('https://api.github.com/repos/mustafa-khann/notes');
             const data = await response.json();
@@ -190,123 +309,175 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update star count if element exists
             const starElement = document.querySelector('.github-stars');
             if (starElement && data.stargazers_count) {
-                starElement.textContent = data.stargazers_count;
+                starElement.textContent = this.formatNumber(data.stargazers_count);
             }
         } catch (error) {
             console.log('Could not fetch GitHub stats:', error);
         }
     }
 
-    // Fetch GitHub stats after page load
-    setTimeout(fetchGitHubStats, 1000);
+    formatNumber(num) {
+        if (num >= 1000) {
+            return (num / 1000).toFixed(1) + 'k';
+        }
+        return num.toString();
+    }
 
-    // Add CSS for copy button
-    const style = document.createElement('style');
-    style.textContent = `
-        .copy-btn {
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            padding: 4px 8px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            margin-left: auto;
-        }
-        
-        .copy-btn:hover {
-            background: var(--bg-tertiary);
-            color: var(--text-primary);
-        }
-        
-        .navbar.scrolled {
-            background: rgba(10, 10, 10, 0.98);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .nav-links.active {
-            display: flex;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: var(--bg-secondary);
-            flex-direction: column;
-            padding: var(--spacing-lg);
-            border-top: 1px solid var(--border-color);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .nav-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .nav-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .nav-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-    `;
-    document.head.appendChild(style);
+    addConsoleWelcome() {
+        console.log(`
+%c🎉 Welcome to Notes! %c
 
-    // Lazy Loading for Images (if any are added later)
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
+A fast, native Linux note-taking application built with Qt & C++17.
 
-    images.forEach(img => imageObserver.observe(img));
+%cGitHub:%c https://github.com/mustafa-khann/notes
+%cLicense:%c MIT
 
-    // Add some interactive hover effects
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
+Built with ❤️ for the Linux community
 
-    // Console welcome message
-    console.log(`
-    🎉 Welcome to Notes!
-    
-    A fast, native Linux note-taking application built with Qt & C++17.
-    
-    GitHub: https://github.com/mustafa-khann/notes
-    License: MIT
-    
-    Built with ❤️ for the Linux community
-    `);
-});
-
-// Utility Functions
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
+        `, 
+        'color: #3b82f6; font-size: 20px; font-weight: bold;',
+        'color: #64748b; font-size: 14px;',
+        'color: #10b981; font-weight: bold;',
+        'color: #cbd5e1;',
+        'color: #f59e0b; font-weight: bold;',
+        'color: #cbd5e1;'
+        );
+    }
 }
 
-// Optimize scroll events
-const optimizedScrollHandler = debounce(function() {
-    // Scroll-based animations and effects
-}, 16); // ~60fps
+// Utility Functions
+class Utils {
+    static debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
 
-window.addEventListener('scroll', optimizedScrollHandler);
+    static throttle(func, limit) {
+        let inThrottle;
+        return function() {
+            const args = arguments;
+            const context = this;
+            if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    }
+}
+
+// Initialize the application
+document.addEventListener('DOMContentLoaded', () => {
+    new NotesLandingPage();
+});
+
+// Add CSS for enhanced animations
+const enhancedStyles = `
+    .scroll-animate {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .scroll-animate.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .navbar.scrolled {
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(20px);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    .nav-links.active {
+        display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        flex-direction: column;
+        padding: var(--space-6);
+        border-top: 1px solid var(--border-primary);
+        box-shadow: var(--shadow-xl);
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .copy-btn {
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        padding: var(--space-2) var(--space-3);
+        border-radius: var(--radius-sm);
+        transition: all var(--transition-normal);
+        margin-left: auto;
+    }
+    
+    .copy-btn:hover {
+        background: var(--bg-tertiary);
+        color: var(--text-primary);
+        transform: scale(1.05);
+    }
+    
+    body.nav-open {
+        overflow: hidden;
+    }
+    
+    .feature-card,
+    .arch-layer,
+    .install-method,
+    .gallery-item,
+    .benefit {
+        transition: all var(--transition-normal);
+    }
+    
+    .hero-badge {
+        animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+        0%, 100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.05);
+        }
+    }
+`;
+
+// Inject enhanced styles
+const styleSheet = document.createElement('style');
+styleSheet.textContent = enhancedStyles;
+document.head.appendChild(styleSheet);
